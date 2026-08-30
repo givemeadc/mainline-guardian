@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python C:/absolute/path/to/mainline-guardian/adapters/checkpoint_hook.py"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python C:/absolute/path/to/mainline-guardian/adapters/brief_hook.py"
+          }
+        ]
+      }
+    ]
+  }
+}

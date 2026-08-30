@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mainline Guardian"
+  short_description: "Keep long-running AI tasks aligned with the user's real outcome."
+  default_prompt: "Use $mainline-guardian when a task has branches, decisions, requirement changes, long conversations, or repeated versions."
