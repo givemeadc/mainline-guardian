@@ -20,6 +20,15 @@
             "command": "python C:/absolute/path/to/mainline-guardian/adapters/brief_hook.py"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python C:/absolute/path/to/mainline-guardian/adapters/prompt_hook.py"
+          }
+        ]
       }
     ]
   }

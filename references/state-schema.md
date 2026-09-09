@@ -33,4 +33,4 @@ State lives in `.mainline/state.json` and uses schema version `2`.
 }
 ```
 
-Criterion statuses are `open`, `verified`, `awaiting-attestation`, `stale`, and `superseded`. Each observation stores a normalized artifact object and contract revision. A user-owned criterion can only become `verified` through `criterion attest`, whose note must quote the user's words. Every state mutation appends an event. Version and decision records are append-only JSON Lines in `ledger.jsonl`; the ledger is created lazily on first record.
+Criterion statuses are `open`, `verified`, `awaiting-attestation`, `stale`, and `superseded`. Each observation stores a normalized artifact object and contract revision. A user-owned criterion can only become `verified` through `criterion attest`, whose note must quote the user's words. A changed artifact stales observations that depend on it; an amended contract supersedes affected criteria. Every state mutation appends an event. Version and decision records are append-only JSON Lines in `ledger.jsonl`; the ledger is created lazily on first record.

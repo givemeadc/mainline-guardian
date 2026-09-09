@@ -13,7 +13,18 @@ result = subprocess.run(
     [sys.executable, str(script), "--root", str(root), "brief"],
     capture_output=True,
     text=True,
+    encoding="utf-8",
+    errors="replace",
     check=False,
 )
 if result.returncode == 0 and result.stdout.strip():
-    print(json.dumps({"hookSpecificOutput": {"hookEventName": "UserPromptSubmit", "additionalContext": result.stdout.strip()}}))
+    print(
+        json.dumps(
+            {
+                "hookSpecificOutput": {
+                    "hookEventName": "UserPromptSubmit",
+                    "additionalContext": result.stdout.strip(),
+                }
+            }
+        )
+    )

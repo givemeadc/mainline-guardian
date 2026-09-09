@@ -156,7 +156,7 @@ contract_change: yes/no
 failure action: what would be done differently if it fails
 ```
 
-The failure-action field is the hard filter. “It may increase confidence” is not enough. A hash or repeated scan is skipped when its result would not change the next action. Debugging is allowed when different outcomes lead to different next steps.
+The failure-action field is the hard filter. “It may increase confidence”, “record the result”, or “check again” is not enough. A hash or repeated scan is skipped when its result would not change the next action. Debugging is allowed when different outcomes lead to different next steps. For metric goals with a declared noise band, an `improved` version must provide a numeric delta; a verdict label alone is not evidence.
 
 Logging is tiered:
 
@@ -182,7 +182,7 @@ The v2 command surface stays compact while covering the high-consequence boundar
 ```text
 init --title --objective --observe
 criterion add|close|attest|stale
-branch open|close
+branch open|assess|close
 decision record
 contract amend --affects ...|--all
 action declare --failure-action ...
@@ -193,6 +193,8 @@ brief
 ```
 
 Branch and decision records may be subcommands or structured events, but they must not expand into a per-turn checklist.
+
+An exploration or unrelated branch cannot be closed without an assessment. The assessment records its relation to the mainline, relevant ledger evidence, cost/risk, and recommendation. Required implementation branches may close directly when the work itself is the requested task.
 
 ## 10. Host Adapters
 

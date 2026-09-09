@@ -8,4 +8,9 @@ root = Path.cwd()
 if not (root / ".mainline" / "state.json").exists():
     raise SystemExit(0)
 script = Path(__file__).resolve().parents[1] / "scripts" / "goal_guard.py"
-subprocess.run([sys.executable, str(script), "--root", str(root), "checkpoint"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+subprocess.run(
+    [sys.executable, str(script), "--root", str(root), "checkpoint"],
+    stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL,
+    check=False,
+)
